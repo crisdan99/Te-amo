@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#170b20"><title>Te amo ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;font-family:Georgia,serif;color:#ffe8f1;background:radial-gradient(circle at 50% 15%,#572342,#28132f 48%,#170b20)}.panel{width:min(700px,100%);text-align:center;padding:clamp(22px,6vw,46px);border:1px solid #ffffff24;border-radius:28px;background:#ffffff0b;box-shadow:0 20px 70px #0006}h1{font-size:clamp(2rem,7vw,3.4rem);color:#ffd2e3}p{font-size:1.1rem;line-height:1.7}.hidden{display:none!important}button{border:0;border-radius:99px;padding:15px 26px;background:linear-gradient(135deg,#ff79aa,#e52e78);color:white;font-size:1.05rem;font-weight:bold;cursor:pointer}.poem{white-space:pre-line;font-style:italic;color:#ffe1ed}.counter{font:1rem system-ui;color:#ffc1d9;margin:14px}.track{height:13px;background:#ffffff20;border-radius:99px;overflow:hidden;margin:20px 0}.fill{height:100%;width:0;background:linear-gradient(90deg,#ff9cbd,#ff347f);transition:width .08s}.heart-wrap{height:185px;display:grid;place-items:center}.heart{font-size:clamp(100px,28vw,165px);filter:drop-shadow(0 0 20px #ff367c88);transform:scale(.35);transition:transform .08s}.burst{animation:burst .75s forwards}@keyframes burst{35%{transform:scale(1.5)}100%{transform:scale(.05);opacity:0;filter:blur(12px)}}.spark{position:fixed;left:50%;top:48%;font-size:23px;pointer-events:none;animation:fly 1.5s forwards;z-index:5}@keyframes fly{to{transform:translate(var(--x),var(--y)) rotate(300deg) scale(.2);opacity:0}}.story{text-align:left;background:#ffffff0b;border:1px solid #ffffff1c;border-radius:20px;padding:20px;margin:22px 0;line-height:1.85}.story p{margin:0 0 16px}.story p:last-child{margin:0}.small{font: .9rem system-ui;color:#e9b9ce}
+</style></head><body><main>
+<section class="panel" id="welcome"><div style="font-size:54px">💗</div><h1>Una pregunta importante...</h1><p>Hay algo que quiero preguntarte. Tocá el botón y descubrí lo que preparé para vos.</p><button id="start">¿Me amás? Presioná aquí ❤️</button></section>
+<section class="panel hidden" id="love"><h1>Para vos, con todo mi cariño 💌</h1>
+<p class="poem">Si pudiera guardar un instante,
+guardaría uno junto a vos;
+porque hasta el día más simple
+se vuelve especial con tu voz.
+
+No hacen falta mil estrellas
+ni promesas frente al mar:
+me alcanza con tu sonrisa
+y las ganas de verte brillar.
+
+Y si alguna vez lo dudás,
+volvé a leer esta canción:
+tenés un lugar muy bonito
+guardado en mi corazón. ❤️</p>
+<p>Ahora ayudame a llenar este corazón con <strong>1.000 clics</strong>. Cada toque cuenta. 💞</p><div class="heart-wrap"><div class="heart" id="heart">❤️</div></div>
+<div class="counter" id="counter" aria-live="polite">0 / 1.000 clics</div><div class="track" role="progressbar" aria-label="Corazón llenándose" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0" id="progress"><div class="fill" id="fill"></div></div>
+<button id="tap">Llenar mi corazón 💗</button><p class="small">Cuando llegue al final... hay una sorpresa esperándote.</p></section>
+<section class="panel hidden" id="final"><div style="font-size:58px">💖✨💖</div><h1>¡Mi corazón explotó de amor! 💥</h1><p>Y ahora quiero contarte una pequeña historia...</p>
+<div class="story"><p><strong>Había una vez dos personas...</strong></p>
+<p>Un día, sus caminos se cruzaron sin que el mundo se detuviera ni sonaran campanas. Parecía un día cualquiera, pero desde entonces algunas cosas empezaron a sentirse diferentes.</p>
+<p>Con el tiempo llegaron las conversaciones, las risas, los pequeños detalles y esos momentos que quizá para los demás no significaban mucho, pero que para ellos se volvieron recuerdos especiales.</p>
+<p>Descubrieron que una historia bonita no necesita ser perfecta: se construye con cariño, paciencia, confianza, respeto y ganas de acompañarse también en los días difíciles.</p>
+<p>Y si esta historia tuviera una última página, no diría “fin”. Diría: <em>«Esto recién empieza. Todavía quedan muchísimas sonrisas, aventuras y recuerdos por escribir».</em></p>
+<p style="text-align:center;color:#ffd2e3;font-size:1.2rem"><strong>Y esta historia... me gustaría seguir escribiéndola con vos. ❤️</strong></p></div>
+<p class="poem">No sé qué nos espera mañana,
+pero hoy quiero que sepas algo:
+me alegra que seas parte de mi historia. 💗</p><button onclick="location.reload()">Volver a empezar ❤️</button></section>
+</main>
+<script>
+const welcome=document.getElementById('welcome'),love=document.getElementById('love'),finalScreen=document.getElementById('final'),heart=document.getElementById('heart'),counter=document.getElementById('counter'),fill=document.getElementById('fill'),progress=document.getElementById('progress'),tap=document.getElementById('tap');
+let clicks=0,finished=false;const total=1000;
+document.getElementById('start').addEventListener('click',()=>{welcome.classList.add('hidden');love.classList.remove('hidden')});
+tap.addEventListener('click',()=>{if(finished)return;clicks++;let pct=clicks/total*100;counter.textContent=clicks.toLocaleString('es-AR')+' / 1.000 clics';fill.style.width=pct+'%';progress.setAttribute('aria-valuenow',clicks);heart.style.transform=`scale(${.35+pct/100*.75})`;
+if(clicks===total){finished=true;tap.disabled=true;tap.textContent='¡Corazón lleno! 💘';heart.classList.add('burst');for(let i=0;i<60;i++){let s=document.createElement('span');s.className='spark';s.textContent=['💖','💕','✨','💗','💘'][i%5];s.style.setProperty('--x',(Math.random()*600-300)+'px');s.style.setProperty('--y',(Math.random()*560-280)+'px');document.body.appendChild(s);setTimeout(()=>s.remove(),1600)}setTimeout(()=>{love.classList.add('hidden');finalScreen.classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'})},900)}});
+</script></body></html>
