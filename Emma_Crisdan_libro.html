@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17131c">
+<title>Emma — Crisdan</title>
+<style>
+:root{--bg:#17131c;--paper:#fffaf1;--ink:#342b32;--muted:#81737a;--rose:#b66b83;--rose2:#e7b6c4}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,#3b2939 0,#17131c 62%);color:#f9edf1;font-family:Georgia,'Times New Roman',serif;display:flex;flex-direction:column;align-items:center;padding:24px 14px 34px}
+header{text-align:center;margin:8px 0 20px}
+.kicker{font:11px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#d9a7b8}
+h1{font-size:clamp(34px,8vw,58px);font-weight:normal;margin:9px 0 4px;letter-spacing:2px}
+.subtitle{font-style:italic;color:#d7c1ca;font-size:15px}
+.book-wrap{width:min(100%,760px);perspective:1800px}
+.book{position:relative;min-height:610px;background:var(--paper);color:var(--ink);border-radius:5px 14px 14px 5px;box-shadow:0 22px 65px #0009, inset 8px 0 12px #6c4b4b22;overflow:hidden}
+.book:before{content:"";position:absolute;left:17px;top:0;bottom:0;width:2px;background:#d8c9b9;z-index:2}
+.page{display:none;min-height:610px;padding:58px clamp(32px,8vw,78px) 76px;position:relative;animation:appear .35s ease}
+.page.active{display:block}
+@keyframes appear{from{opacity:.2;transform:translateX(8px)}to{opacity:1;transform:none}}
+.page-number{position:absolute;bottom:25px;left:0;right:0;text-align:center;color:#a99a91;font:12px Arial,sans-serif}
+.page h2{font-size:27px;font-weight:normal;text-align:center;margin:0 0 28px;color:#704657}
+.page p{font-size:17px;line-height:1.82;margin:0 0 16px;text-align:justify}
+.page .center{text-align:center}
+.cover{background:linear-gradient(145deg,#2a1c2b,#60394d 55%,#211a28);color:#fff4f6;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:8px double #c99aaa;min-height:610px;padding:40px}
+.cover:before{display:none}
+.cover .ornament{font-size:34px;color:#e8b9c8;margin-bottom:24px}
+.cover h2{font-size:clamp(52px,12vw,82px);letter-spacing:7px;color:#fff4f6;margin:0 0 8px}
+.cover .tagline{font-style:italic;color:#e9cbd4;font-size:17px;margin:0 0 48px}
+.cover .author{font:12px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#e7bdca}
+.cover .genre{font:10px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:#d3a7b6;margin-top:50px}
+.end-page{display:flex;flex-direction:column;justify-content:center;min-height:610px}
+.end-page .fin{font-size:28px;text-align:center;color:#86566b;margin-top:30px;font-style:italic}
+.controls{display:flex;align-items:center;justify-content:center;gap:14px;margin:18px 0 0;flex-wrap:wrap}
+button{border:1px solid #c78da1;background:#6d4056;color:white;padding:12px 22px;border-radius:30px;font:14px Arial,sans-serif;cursor:pointer;transition:.2s}
+button:hover{background:#8a526b;transform:translateY(-1px)}
+button:disabled{opacity:.35;cursor:not-allowed;transform:none}
+#counter{font:12px Arial,sans-serif;color:#e0c7d0;min-width:92px;text-align:center}
+.hint{font:12px Arial,sans-serif;color:#bda8b1;text-align:center;margin-top:13px}
+@media(max-width:520px){body{padding:15px 9px 25px}.book,.page,.cover,.end-page{min-height:680px}.page{padding:48px 29px 72px}.page p{font-size:16px;line-height:1.75}.page h2{font-size:24px}.book:before{left:10px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Una novela de Crisdan</div>
+  <h1>Emma</h1>
+  <div class="subtitle">El amor que nunca supe si fue mío</div>
+</header>
+
+<main class="book-wrap">
+<div class="book" id="book">
+  <section class="page cover active">
+    <div class="ornament">❧</div>
+    <h2>Emma</h2>
+    <p class="tagline">El amor que nunca supe si fue mío</p>
+    <div class="author">CRISDAN</div>
+    <div class="genre">Romance · Distancia · Melancolía · Amor no correspondido</div>
+    <div class="page-number">Portada</div>
+  </section>
+
+  <section class="page">
+    <h2>Prólogo: Una respuesta inesperada</h2>
+    <p>Kevin nunca había sido alguien con demasiada suerte en el amor.</p>
+    <p>Era un chico reservado, de pocas palabras y con una forma particular de ver el mundo. Pasaba gran parte de sus días solo. No tenía muchos amigos, tampoco era de esos chicos que sabían cómo acercarse fácilmente a alguien.</p>
+    <p>Había descargado una aplicación para conocer personas. Durante un tiempo, intentó iniciar conversaciones, pero casi siempre sucedía lo mismo: algunos no respondían, otros lo dejaban esperando y otros simplemente desaparecían.</p>
+    <p>Hasta que una tarde apareció ella.</p>
+    <p>Emma.</p>
+    <p>Su fotografía llamó inmediatamente su atención. Le pareció hermosa, tanto que durante unos segundos se quedó mirando su perfil antes de decidirse a darle «me gusta».</p>
+    <p>No esperaba demasiado.</p>
+    <p>Sin embargo, ocurrió algo diferente.</p>
+    <p>Ella respondió.</p>
+    <p>Kevin entró a su perfil, observó sus fotografías y leyó algunas cosas sobre ella. Le pareció todavía más interesante. Por primera vez en mucho tiempo, sintió curiosidad por conocer a alguien.</p>
+    <p>Así comenzó todo.</p>
+    <div class="page-number">1</div>
+  </section>
+
+  <section class="page">
+    <h2>Capítulo 1: Una conversación que no estaba esperando</h2>
+    <p>Kevin no sabía muy bien cómo empezar. Pensó varias veces qué escribir, borró algunos mensajes y finalmente decidió hablarle de algo que llevaba tiempo imaginando: quería escribir una historia.</p>
+    <p>Le contó sobre su proyecto, sobre los personajes que tenía en mente y sobre aquella idea que deseaba convertir algún día en algo especial.</p>
+    <p>Emma respondió con entusiasmo.</p>
+    <p>Le pareció una idea genial. Le hizo preguntas y mostró interés por aquel proyecto que, hasta entonces, Kevin había guardado para sí mismo.</p>
+    <p>A él le sorprendió.</p>
+    <p>No estaba acostumbrado a que alguien escuchara sus ideas de aquella manera.</p>
+    <p>Poco a poco comenzaron a hablar más. Y, sin darse cuenta, aquella conversación empezó a ocupar un pequeño lugar en sus días.</p>
+    <p>Un día, Kevin decidió hacer algo diferente.</p>
+    <p>Preparó dos imágenes con una frase de amor, como si fueran pequeñas cartas. Se las envió a Emma sin saber exactamente qué pensaría.</p>
+    <p>A ella le gustaron.</p>
+    <p>Y para Kevin aquello significó mucho más de lo que imaginaba.</p>
+    <p>No era solamente una imagen bonita. Era su manera de expresar algo que todavía no se animaba a decir directamente.</p>
+    <div class="page-number">2</div>
+  </section>
+
+  <section class="page">
+    <h2>Capítulo 2: Un lugar llamado Instagram</h2>
+    <p>Pasaron los días y Kevin quiso conocerla un poco más.</p>
+    <p>Una tarde le preguntó si podían continuar hablando por otra aplicación.</p>
+    <p>—¿Por dónde? —preguntó Emma.</p>
+    <p>—¿Instagram?</p>
+    <p>—Sí, claro.</p>
+    <p>Y así llegaron a otro lugar, donde las conversaciones continuaron.</p>
+    <p>Para ese momento, Kevin ya sentía algo diferente.</p>
+    <p>Le gustaba su manera de ser, sus respuestas, sus ocurrencias y hasta esos pequeños detalles que quizás para ella no significaban demasiado.</p>
+    <p>Comenzaron a contarse cosas de sus vidas. Hablaban de sus gustos, de sus días y de diferentes asuntos que los ayudaban a conocerse.</p>
+    <p>Pero Kevin tenía un problema: su propia cabeza.</p>
+    <p>A veces, después de una conversación bonita, se quedaba pensando durante horas.</p>
+    <p><em>¿Le gustará hablar conmigo?</em></p>
+    <p><em>¿Será que realmente le intereso?</em></p>
+    <p><em>¿Y si solamente es amable?</em></p>
+    <p><em>¿Qué podría encontrar en alguien como yo?</em></p>
+    <div class="page-number">3</div>
+  </section>
+
+  <section class="page">
+    <h2>Capítulo 2: Un lugar llamado Instagram</h2>
+    <p>No se sentía suficiente. Le preocupaba su apariencia, su personalidad y esa dificultad que tenía para expresar lo que sentía.</p>
+    <p>A veces pensaba que, aunque llegara a gustarle alguien, tarde o temprano esa persona terminaría alejándose.</p>
+    <p>Pero Emma seguía allí.</p>
+    <p>Y él quería creer que aquello podía significar algo.</p>
+    <p>Una vez, Kevin le dijo que todos los días intentaría enamorarla.</p>
+    <p>Lo dijo con una mezcla de timidez y determinación.</p>
+    <p>No sabía si conseguiría hacerlo, pero quería intentarlo.</p>
+    <div class="page-number">4</div>
+  </section>
+
+  <section class="page">
+    <h2>Capítulo 3: Las cosas que nunca se dijeron</h2>
+    <p>Con el tiempo, Kevin comenzó a descubrir algo que le resultaba difícil de explicar.</p>
+    <p>Emma podía ser cariñosa, divertida y cercana. Pero también había momentos en los que parecía distante.</p>
+    <p>Y él no sabía cómo interpretar esos cambios.</p>
+    <p>Cuando ella le hablaba con cariño, Kevin encontraba motivos para ilusionarse.</p>
+    <p>Cuando tardaba en responder o parecía estar en otro mundo, comenzaba a cuestionarlo todo.</p>
+    <p>No sabía si estaba imaginando sentimientos donde no los había o si, tal vez, Emma también sentía algo que todavía no sabía expresar.</p>
+    <p>El problema era que Kevin no se atrevía a preguntar directamente.</p>
+    <p>Prefería guardar sus dudas antes que arriesgarse a escuchar una respuesta que pudiera dolerle.</p>
+    <p>Así que continuaba escribiendo.</p>
+    <p>A veces escribía frases que nunca enviaba. Otras veces imaginaba conversaciones que quizás jamás ocurrirían.</p>
+    <p>Y mientras Emma continuaba con su vida, Kevin construía en su imaginación un pequeño mundo donde los dos podían estar juntos.</p>
+    <div class="page-number">5</div>
+  </section>
+
+  <section class="page">
+    <h2>Capítulo 4: La distancia</h2>
+    <p>Llegó un momento en el que la vida de Kevin comenzó a cambiar.</p>
+    <p>Tenía que continuar sus estudios y prepararse para ingresar a la universidad.</p>
+    <p>Sus días empezaron a llenarse de nuevas responsabilidades. El tiempo pasó y, poco a poco, las conversaciones con Emma fueron desapareciendo.</p>
+    <p>No hubo necesariamente una gran discusión.</p>
+    <p>Tampoco una despedida perfectamente explicada.</p>
+    <p>Simplemente, dejaron de hablar como antes.</p>
+    <p>Kevin no sabía si debía escribirle otra vez, si debía esperar o si era mejor dejar que las cosas siguieran su curso.</p>
+    <p>Y entonces hizo algo que siempre había querido hacer.</p>
+    <p>Escribió una historia.</p>
+    <p>Pero esta vez no era una historia cualquiera.</p>
+    <p>La llamó <strong>Emma</strong>.</p>
+    <div class="page-number">6</div>
+  </section>
+
+  <section class="page">
+    <h2>Capítulo 4: La distancia</h2>
+    <p>En sus páginas escondió todas aquellas cosas que nunca había podido expresar: las conversaciones, las ilusiones, las dudas, las noches pensando en ella y el miedo de no ser suficiente.</p>
+    <p>Cambió algunos detalles, inventó escenas y creó personajes diferentes.</p>
+    <p>Sin embargo, detrás de cada palabra había una parte de él.</p>
+    <p>Publicó aquella historia.</p>
+    <p>Quizás Emma algún día la leería. Quizás nunca sabría que había sido escrita pensando en ella.</p>
+    <p>Pero Kevin ya no necesitaba que cada palabra llegara a su destino.</p>
+    <p>Por primera vez, había encontrado una forma de decir lo que sentía sin tener que pronunciarlo.</p>
+    <div class="page-number">7</div>
+  </section>
+
+  <section class="page">
+    <h2>Capítulo 5: El día que pudo verla</h2>
+    <p>El tiempo continuó avanzando.</p>
+    <p>Un día, Kevin tuvo la oportunidad de viajar a la ciudad donde vivía Emma.</p>
+    <p>No sabía si realmente se encontrarían. Tampoco estaba seguro de qué haría si llegaba a verla.</p>
+    <p>Hasta que ocurrió.</p>
+    <p>La vio.</p>
+    <p>Entre tantas personas, reconoció su rostro.</p>
+    <p>Era ella.</p>
+    <p>La chica con la que había hablado durante tantas horas, la que había conocido a través de una pantalla, la protagonista de tantas páginas que había escrito.</p>
+    <p>Por un instante, Kevin se quedó observándola.</p>
+    <p>No necesitó acercarse para reconocerla.</p>
+    <p>Estaba allí, frente a él, viviendo su propia vida. Se veía feliz.</p>
+    <div class="page-number">8</div>
+  </section>
+
+  <section class="page">
+    <h2>Capítulo 5: El día que pudo verla</h2>
+    <p>Y Kevin comprendió que había cumplido algo que durante mucho tiempo había imaginado: verla en persona.</p>
+    <p>No sabía qué habría ocurrido si se acercaba.</p>
+    <p>No sabía si ella lo habría reconocido, si habría querido hablar con él o si habría sentido la misma emoción.</p>
+    <p>Pero tampoco quiso interrumpir aquel momento.</p>
+    <p>Se quedó con aquella imagen.</p>
+    <p>Y lentamente se alejó.</p>
+    <p>No porque hubiera dejado de quererla, sino porque entendió que no podía exigirle a la vida un final que nunca le había prometido.</p>
+    <div class="page-number">9</div>
+  </section>
+
+  <section class="page">
+    <h2>Capítulo 6: La última página</h2>
+    <p>Después de aquel día, Kevin siguió con su vida.</p>
+    <p>Continuó estudiando, escribiendo y caminando por los mismos lugares de siempre.</p>
+    <p>No se convirtió de repente en alguien diferente. Seguía siendo reservado, seguía pensando demasiado y todavía le costaba expresar lo que sentía.</p>
+    <p>Pero había algo que había cambiado.</p>
+    <p>Ya no esperaba encontrar una respuesta en cada silencio.</p>
+    <p>Guardó una fotografía de Emma entre sus recuerdos. No como una promesa de que algún día estarían juntos, sino como el recuerdo de alguien que había significado mucho para él.</p>
+    <p>A veces escribía poemas.</p>
+    <p>Algunos hablaban de sus ojos. Otros de aquella primera conversación, de las imágenes que le había enviado o de una ciudad donde, por fin, había podido verla.</p>
+    <p>Quizás ella nunca leería aquellas palabras.</p>
+    <p>Quizás jamás descubriría cuánto había significado para Kevin aquella historia.</p>
+    <div class="page-number">10</div>
+  </section>
+
+  <section class="page">
+    <h2>Capítulo 6: La última página</h2>
+    <p>Y tal vez eso era lo más triste: nunca había sabido si Emma habría abierto la puerta de su corazón si él hubiera tenido la oportunidad de llamar.</p>
+    <p>Una noche, volvió a abrir el documento donde había escrito su historia.</p>
+    <p>Leyó el título:</p>
+    <p class="center"><strong>Emma.</strong></p>
+    <p>Se quedó unos segundos mirando la pantalla y escribió la última frase:</p>
+    <p><em>«No sé si alguna vez me habrías elegido. Nunca conocí la respuesta. Pero hubo un tiempo en el que, sin saberlo, fuiste la persona a la que más palabras le dediqué. Y aunque nuestros caminos nunca llegaron a convertirse en uno solo, me quedo con la felicidad de haberte conocido, aunque haya sido desde lejos».</em></p>
+    <p>Kevin cerró el documento.</p>
+    <p>No sabía qué le depararía el futuro. Tampoco sabía si volvería a enamorarse.</p>
+    <p>Pero aquella historia ya estaba terminada.</p>
+    <p>No porque el amor hubiera desaparecido, sino porque había comprendido que no todas las historias necesitan convertirse en una relación para haber sido importantes.</p>
+    <div class="page-number">11</div>
+  </section>
+
+  <section class="page end-page">
+    <h2>Fin</h2>
+    <p>Y así, sin despedidas dramáticas ni promesas imposibles, Kevin continuó su camino.</p>
+    <p><em>Emma nunca supo cuántas páginas había escrito para ella. Y Kevin nunca supo qué habría pasado si alguna vez ella hubiera sentido lo mismo.</em></p>
+    <div class="fin">❧ Fin ❧</div>
+    <div class="page-number">12</div>
+  </section>
+</div>
+</main>
+
+<nav class="controls" aria-label="Controles del libro">
+  <button id="prev" type="button" disabled>← Anterior</button>
+  <span id="counter">Portada</span>
+  <button id="next" type="button">Siguiente →</button>
+</nav>
+<p class="hint">Pasá las páginas con los botones. También podés usar las flechas del teclado.</p>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];
+const prev=document.getElementById('prev');
+const next=document.getElementById('next');
+const counter=document.getElementById('counter');
+let current=0;
+function showPage(index){
+  current=Math.max(0,Math.min(index,pages.length-1));
+  pages.forEach((page,i)=>page.classList.toggle('active',i===current));
+  prev.disabled=current===0;
+  next.disabled=current===pages.length-1;
+  counter.textContent=current===0?'Portada':current===pages.length-1?'Final':`Página ${current} de ${pages.length-1}`;
+}
+prev.addEventListener('click',()=>showPage(current-1));
+next.addEventListener('click',()=>showPage(current+1));
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight')showPage(current+1);
+  if(e.key==='ArrowLeft')showPage(current-1);
+});
+let startX=0;
+document.getElementById('book').addEventListener('touchstart',e=>{startX=e.changedTouches[0].screenX},{passive:true});
+document.getElementById('book').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].screenX-startX;
+  if(Math.abs(dx)>55)showPage(current+(dx<0?1:-1));
+},{passive:true});
+</script>
+</body>
+</html>
